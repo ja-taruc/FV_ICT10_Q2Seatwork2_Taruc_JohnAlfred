@@ -19,6 +19,7 @@
             margin: 0;
             padding: 0;
         }
+
         .container1 {
             background-color: #1B1B1E;
             padding: 20px;
@@ -27,62 +28,34 @@
             color: #EDE9EC;
             width: 650px;
             margin: 20px auto;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+
         .form-flex {
             display: flex;
-            flex-wrap: wrap;
             justify-content: center;
-            gap: 30px;
-            margin: 0 auto;
-            max-width: 800px;
+            margin-top: 20px;
         }
-        .container2, .container3 {
+
+        .container2 {
             width: 360px;
-            flex: 1 1 360px;
             padding: 20px;
             border-radius: 9px;
             border: medium solid #F8F7FF;
-            box-sizing: border-box;
+            background-color: #D8973C;
+            color: white;
             display: flex;
             flex-direction: column;
             gap: 15px;
-        }
-        .container3 h3 {
-            margin-bottom: 10px;
-        }
-        .container2 {
-            background-color: #D8973C;
-            color: #ffffff;
         }
 
         input[type="text"],
         input[type="number"] {
             width: 100%;
-            height: 30px;
+            height: 35px;
             border-radius: 9px;
             border: 1px solid white;
-            box-sizing: border-box;
             padding: 5px 10px;
-        }
-
-        table td input[type="number"] {
-            text-align: right;
-            width: 60px;
-            height: 25px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-
-        button {
-            width: 100%;
-            height: 50px;
-            border-radius: 9px;
-            border: 1px solid white;
-            cursor: pointer;
-            background-color: #ffffff;
-            color: #A8201A;
-            font-weight: bold;
+            box-sizing: border-box;
         }
 
         table {
@@ -90,79 +63,76 @@
             border-collapse: collapse;
         }
 
-        th, td {
-            padding: 10px;
+        td {
+            padding: 8px;
             text-align: left;
         }
 
-
-        input::-webkit-outer-spin-button,
-        input::-webkit-inner-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
+        table td input {
+            width: 70px;
+            height: 28px;
+            border-radius: 5px;
+            border: 1px solid white;
+            text-align: right;
         }
-        input[type=number] {
-            -moz-appearance: textfield;
+
+        button {
+            width: 100%;
+            height: 50px;
+            border-radius: 9px;
+            background-color: white;
+            color: #A8201A;
+            border: 1px solid white;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        #result, #status {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: white;
+            border-radius: 9px;
+            width: 350px;
+            color: #000;
         }
     </style>
 </head>
 <body>
 
-<center>
     <div class="container1">
         <h1>Student Grade Calculator</h1>
     </div>
-
-    <br>
 
     <div class="form-flex">
         <div class="container2">
             <h3>Online Grade Calculator System</h3>
             <h4>Student Information</h4>
+
             <input id="fname" type="text" placeholder="First Name">
             <input id="lname" type="text" placeholder="Last Name">
             <input id="glevel" type="number" placeholder="Grade Level">
 
             <h3>Subjects</h3>
             <table>
-                <tr>
-                    <th>Subject</th>
-                    <th>Grade</th>
-                </tr>
-                <tr>
-                    <td>Science</td>
-                    <td><input id="sci" type="number" min="0" max="100"></td>
-                </tr>
-                <tr>
-                    <td>English</td>
-                    <td><input id="eng" type="number" min="0" max="100"></td>
-                </tr>
-                <tr>
-                    <td>ICT</td>
-                    <td><input id="ict" type="number" min="0" max="100"></td>
-                </tr>
-                <tr>
-                    <td>Math</td>
-                    <td><input id="math" type="number" min="0" max="100"></td>
-                </tr>
-                <tr>
-                    <td>Filipino</td>
-                    <td><input id="filo" type="number" min="0" max="100"></td>
-                </tr>
-                <tr>
-                    <td>PE</td>
-                    <td><input id="pe" type="number" min="0" max="100"></td>
-                </tr>
+                <tr><td>Science</td> <td><input id="sci" type="number" min="0" max="100"></td></tr>
+                <tr><td>English</td> <td><input id="eng" type="number" min="0" max="100"></td></tr>
+                <tr><td>ICT</td>     <td><input id="ict" type="number" min="0" max="100"></td></tr>
+                <tr><td>Math</td>    <td><input id="math" type="number" min="0" max="100"></td></tr>
+                <tr><td>Filipino</td><td><input id="filo" type="number" min="0" max="100"></td></tr>
+                <tr><td>PE</td>      <td><input id="pe" type="number" min="0" max="100"></td></tr>
             </table>
-            
+
             <p>Please input your grades first before confirming your information, thank you!</p>
-           <button py-click="general_weighted_average">Calculate GWA</button>
+
+            <button py-click="general_weighted_average">Calculate GWA</button>
+
             <div id="result"></div>
             <div id="status"></div>
         </div>
     </div>
-</center>
 
- <script type="py" src="list.py"></script>
+    <script type="py" src="list.py"></script>
+
 </body>
 </html>
