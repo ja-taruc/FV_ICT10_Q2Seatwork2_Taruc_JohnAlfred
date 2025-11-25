@@ -1,31 +1,47 @@
 from pyscript import document, display
 
-def general_weighted_average(e):
-   fname = document.getElementById('fname').value
-   lname = document.getElementById('lname').value
-   science = float(document.getElementById('science').value)
-   english = float(document.getElementById('english').value)
-   ict = float(document.getElementById('ict').value)
-    math = float(document.getElementById('math').value)
-   filipino = float(document.getElementById('filipino').value)
-   pe = float(document.getElementById('pe').value)
-   # these were recommeded by co pilot
+def general_weighted_average(event=None):
+    # Get student info
+    fname = document.getElementById("fname").value
+    lname = document.getElementById("lname").value
+    glevel = document.getElementById("glevel").value
 
-weighted_sum = (science * 5 + math * 5 + english * 5 + filipino * 3 + ict * 2 + pe * 1)
-total_units = (5 * 3) + 3 + 2 + 1
-gwa = weighted_sum / total_units
+    # Get grades
+    science = float(document.getElementById("sci").value)
+    english = float(document.getElementById("eng").value)
+    ict = float(document.getElementById("ict").value)
+    math = float(document.getElementById("math").value)
+    filipino = float(document.getElementById("filo").value)
+    pe = float(document.getElementById("pe").value)
 
-display(f'Name: {first_name} {last_name}', target="student_info")
-display(summary, target='summary')
-display(f'Your general weighted average is {gwa:.2f}', target='output')
+    # Subject list (for summary)
+    subjects = ["Science", "Math", "English", "Filipino", "ICT", "PE"]
 
-summary = f"""{subjects[0]}: {science:.0f}
-{subjects[1]}: {math:.0f}
-{subjects[2]}: {english:.0f}
-{subjects[3]}: {filipino:.0f}
-{subjects[4]}: {ict:.0f}
-{subjects[5]}: {pe:.0f}
-    """
-display(fullname: {first_name} {last_name}', target="student_info")
-display(summary, target='summary')
-display(f'Your general weighted average is {gwa:.2f}', target='output')
+    # Calculate weighted sum
+    weighted_sum = (science * 5 +
+                    math * 5 +
+                    english * 5 +
+                    filipino * 3 +
+                    ict * 2 +
+                    pe * 1)
+
+    # Total weight/units
+    total_units = (5 + 5 + 5 + 3 + 2 + 1)
+
+    # GWA computation
+    gwa = weighted_sum / total_units
+
+    # Grade summary
+    summary = f"""
+Science : {science:.0f}
+Math    : {math:.0f}
+English : {english:.0f}
+Filipino: {filipino:.0f}
+ICT     : {ict:.0f}
+PE      : {pe:.0f}
+"""
+
+    # Output results to HTML
+    display(f"<b>Name:</b> {fname} {lname}<br><b>Grade:</b> {glevel}", target="result")
+    display(f"<pre>{summary}</pre>", target="status")
+    display(f"<h3>Your General Weighted Average is <b>{gwa:.2f}</b></h3>", target="status")
